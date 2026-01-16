@@ -135,7 +135,7 @@ Homebrew と npm でパッケージ管理。
 
 ### [momeemt/config](https://github.com/momeemt/config)
 
-https://zenn.dev/momeemt/articles/dotfiles2025
+[2025 年の dotfiles](https://zenn.dev/momeemt/articles/dotfiles2025)
 
 Nix 利用  
 タスクランナーに casey/just を利用  
@@ -147,7 +147,7 @@ Nix 利用
 
 ### [serna37/dotfiles](https://github.com/serna37/dotfiles)
 
-https://note.alhinc.jp/n/n60e2178fa73d
+[dotfiles のすゝめ｜ ALH 株式会社](https://note.alhinc.jp/n/n60e2178fa73d)
 
 Mac 用。Zsh 使い。  
 install.sh に Homebrew のパッケージが書かれていたり、symlink を貼るのが書かれていたり  
@@ -156,7 +156,7 @@ mise が使われている。パッケージマネージャっぽいけどグロ
 
 ### [tadashi-aikawa/owl-playbook](https://github.com/tadashi-aikawa/owl-playbook/tree/master)
 
-https://minerva.mamansoft.net/%F0%9F%93%97Productivity%E3%82%92%E4%B8%8A%E3%81%92%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E5%A4%A7%E5%88%87%E3%81%AA100%E3%81%AE%E3%81%93%E3%81%A8/%F0%9F%93%97dotfiles%E3%82%92%E8%82%B2%E3%81%A6%E3%82%8B
+[📗dotfiles を育てる - Minerva](https://minerva.mamansoft.net/%F0%9F%93%97Productivity%E3%82%92%E4%B8%8A%E3%81%92%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E5%A4%A7%E5%88%87%E3%81%AA100%E3%81%AE%E3%81%93%E3%81%A8/%F0%9F%93%97dotfiles%E3%82%92%E8%82%B2%E3%81%A6%E3%82%8B)
 
 Windows と Linux で設定が別れている。  
 Bash と Zsh の設定があるが、Zsh メインっぽそう。  
@@ -167,7 +167,7 @@ Linux は apt と mise
 
 ### [happy663/dotfiles](https://github.com/happy663/dotfiles)
 
-https://techblog.cartaholdings.co.jp/entry/dotfiles-toyama  
+[2025 年を dotfiles で振り返る Nix の導入、Neovim での Github の操作と起動速度の改善 - CARTA TECH BLOG](https://techblog.cartaholdings.co.jp/entry/dotfiles-toyama)  
 Mac と Linux  
 タスクランナーに Make  
 Nix 利用
@@ -177,3 +177,11 @@ Nix 利用
 Nix 利用  
 karabiner-elements の設定を typescript で管理できる karabiner.ts というものがあるらしい。Mac 使う時に使ってみたい。  
 bash, zsh, fish の設定があるが、fish をメインで利用していそう。
+
+### [kmdkuk/MyDotFiles](https://github.com/kmdkuk/MyDotFiles)
+
+自分自身の dotfiles  
+過去記事: [dotfiles のすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfiles%E3%81%AE%E3%81%99%E3%82%9D%E3%82%81.html)
+今は、Linux と Windows 環境メインでそれぞれ管理している。  
+基本は、symlink をよしなに貼るだけなのと、パッケージ管理もここに記録している。
+Mac は最近使っていないのもあって、若干おざなり。たぶん動くとは思う。
