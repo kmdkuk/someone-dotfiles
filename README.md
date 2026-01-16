@@ -181,7 +181,7 @@ bash, zsh, fish の設定があるが、fish をメインで利用していそ�
 ### [kmdkuk/MyDotFiles](https://github.com/kmdkuk/MyDotFiles)
 
 自分自身の dotfiles  
-過去記事: [dotfiles のすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfiles%E3%81%AE%E3%81%99%E3%82%9D%E3%82%81.html)
+過去記事: [dotfiles のすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfiles%E3%81%AE%E3%81%99%E3%82%9D%E3%82%81.html)  
 今は、Linux と Windows 環境メインでそれぞれ管理している。  
-基本は、symlink をよしなに貼るだけなのと、パッケージ管理もここに記録している。
+基本は、symlink をよしなに貼るだけなのと、パッケージ管理もここに記録している。  
 Mac は最近使っていないのもあって、若干おざなり。たぶん動くとは思う。
