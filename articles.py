@@ -14,17 +14,23 @@ REPOS_DIR = Path("repos")
 
 
 def load_tags_config():
-    """Load tag detection rules from JSON file."""
+    """Load tag detection rules from JSON file.
+    Returns a tuple (patterns, inferences).
+    """
     if not TAGS_FILE.exists():
         print("Warning: tags.json not found. Using empty rules.")
-        return {}
+        return {}, {}
 
     with open(TAGS_FILE, "r") as f:
         try:
-            return json.load(f)
+            data = json.load(f)
+            # Check if using new structure with 'patterns' key
+            if "patterns" in data:
+                return data.get("patterns", {}), data.get("inferences", {})
+            return data, {}  # Backward compatibility
         except json.JSONDecodeError as e:
             print(f"Error parse tags.json: {e}")
-            return {}
+            return {}, {}
 
 
 def run_command(command, cwd=None):
@@ -133,14 +139,13 @@ def fetch_all_github_descriptions(repos):
     return results
 
 
-def detect_tags(repo_path):
-    """Detect tags based on file structure using rules from tags.json."""
+def detect_tags(repo_path, patterns):
+    """Detect tags based on file structure using rules."""
     tags = set()
     repo_path = Path(repo_path)
-    rules = load_tags_config()  # Load rules here or pass as argument
 
-    for tag_name, patterns in rules.items():
-        for pattern in patterns:
+    for tag_name, rules in patterns.items():
+        for pattern in rules:
             # Use glob with **/ to find matches in subdirectories too
             if any(repo_path.glob(f"**/{pattern}")):
                 tags.add(tag_name)
@@ -149,7 +154,31 @@ def detect_tags(repo_path):
     return sorted(list(tags))
 
 
-def prepare_repo_and_detect_tags(owner, repo):
+def apply_inferences(tags, inferences):
+    """Apply tag inferences recursively."""
+    if not inferences:
+        return tags
+
+    current_tags = set(tags)
+
+    while True:
+        added = False
+        # inferences: {"Parent": ["Child", ...]}
+        for parent, children in inferences.items():
+            if parent in current_tags:
+                continue
+            # If any child is present, add parent
+            if any(child in current_tags for child in children):
+                current_tags.add(parent)
+                added = True
+
+        if not added:
+            break
+
+    return sorted(list(current_tags))
+
+
+def prepare_repo_and_detect_tags(owner, repo, patterns):
     """Clone or pull repo in repos/ dir and detect tags."""
     repo_path = REPOS_DIR / owner / repo
     repo_url = f"https://github.com/{owner}/{repo}.git"
@@ -176,7 +205,7 @@ def prepare_repo_and_detect_tags(owner, repo):
                 print(f"Error re-cloning {owner}/{repo}: {e}")
                 return []
 
-    return detect_tags(repo_path)
+    return detect_tags(repo_path, patterns)
 
 
 def upsert_article(owner, repo, description=None):
@@ -185,6 +214,8 @@ def upsert_article(owner, repo, description=None):
     filename = ARTICLES_DIR / f"{slug}.mdx"
 
     print(f"Processing {owner}/{repo}...")
+
+    patterns, inferences = load_tags_config()
 
     # 1. Fetch metadata
     # If description is passed (from batch), use it.
@@ -195,7 +226,7 @@ def upsert_article(owner, repo, description=None):
         except Exception as e:
             raise Exception(f"Failed to fetch metadata: {e}")
 
-    tags = prepare_repo_and_detect_tags(owner, repo)
+    tags = prepare_repo_and_detect_tags(owner, repo, patterns)
 
     existing_content = ""
     ignore_tags = set()
@@ -241,13 +272,12 @@ def upsert_article(owner, repo, description=None):
         # Append to README if new
         update_readme(owner, repo, filename)
 
-    # Add Windows tag if Powershell is present
-    if "PowerShell" in tags:
-        tags.append("Windows")
-
     # Add manual tags
     if manual_tags:
         tags.extend(list(manual_tags))
+
+    # Apply inferences
+    tags = apply_inferences(tags, inferences)
 
     # Deduplicate and sort
     tags = sorted(list(set(tags)))
