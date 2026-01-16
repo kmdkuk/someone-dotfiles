@@ -1,6 +1,7 @@
-# yourdotfiles
+# someone-dotfiles
 
-みんなの dotfiles
+誰かの dotfiles  
+適当に読んだ dotfiles + メモ書き
 
 ## Uncategorized
 
