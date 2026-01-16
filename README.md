@@ -57,7 +57,7 @@ Makefile で bootstrap する。
 ShellCheck を実行する test target も用意されている。  
 Linux 使いで、etc 下の設定も管理されている。  
 たぶん Bash 使い  
-bootstrap のときに`git update-index--skip-worktree'を使って、追跡から外している。多分これで private な設定を入れたりしてるのだろう。
+bootstrap のときに`git update-index--skip-worktree`を使って、追跡から外している。多分これで private な設定を入れたりしてるのだろう。
 
 ### [driesvints/dotfiles](https://github.com/driesvints/dotfiles)
 
