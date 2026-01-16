@@ -226,6 +226,9 @@ def upsert_article(owner, repo, description=None):
         except Exception as e:
             raise Exception(f"Failed to fetch metadata: {e}")
 
+    # Escape double quotes for YAML frontmatter
+    description = description.replace('"', '\\"')
+
     tags = prepare_repo_and_detect_tags(owner, repo, patterns)
 
     existing_content = ""
@@ -303,7 +306,7 @@ def upsert_article(owner, repo, description=None):
     frontmatter = f"""---
 slug: {slug}
 repository: {owner}/{repo}
-description: {description}
+description: "{description}"
 tags:
 {tags_yaml}
 {ignore_tags_line}{manual_tags_line}source: {source_url}
