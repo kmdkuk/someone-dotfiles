@@ -169,3 +169,9 @@ https://techblog.cartaholdings.co.jp/entry/dotfiles-toyama
 Mac と Linux
 タスクランナーに Make
 Nix 利用
+
+### [ryoppippi/dotfiles](https://github.com/ryoppippi/dotfiles)
+
+Nix 利用
+karabiner-elements の設定を typescript で管理できる karabiner.ts というものがあるらしい。Mac 使う時に使ってみたい。
+bash, zsh, fish の設定があるが、fish をメインで利用していそう。
