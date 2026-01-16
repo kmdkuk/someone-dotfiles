@@ -1,0 +1,17 @@
+---
+slug: cowboy-dotfiles
+repository: cowboy/dotfiles
+description: Mac と Ubuntu 用。ディレクトリ分けがされていて、ROOT には何も置いてない。
+tags:
+  - Linux
+  - MacOS
+  - Bash
+content: Placeholder content for cowboy/dotfiles.
+---
+
+# cowboy/dotfiles
+
+Mac と Ubuntu 用。ディレクトリ分けがされていて、ROOT には何も置いてない。  
+bin/dotfiles が bootstrap 用の script そこそこの大きさ。  
+copy は cp, link は symlink, config は.config 下に symlink, init は setup script を bin/dotfiles からよしなにやっている。  
+Bash 使い。実行順や読み込み順はファイル名`[0-9][0-9]_hogehoge.sh`のように管理されている。

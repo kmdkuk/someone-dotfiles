@@ -1,0 +1,20 @@
+---
+slug: holman-dotfiles
+repository: holman/dotfiles
+description: ディレクトリ分けがきれいにされている。
+tags:
+  - Vim
+  - MacOS
+  - Zsh
+content: Placeholder content for holman/dotfiles.
+---
+
+# holman/dotfiles
+
+ディレクトリ分けがきれいにされている。  
+ROOT にあるのは Brewfile のみ。  
+symlink を作りたいものは vimrc.symlink のようにしておいて、  
+installscript から.symlink を find して、ホームディレクトリに symlink を作っていくらしい。  
+基本.zsh といった、Zsh で読み込ませるスクリプトが多め。たぶん Mac 使いの方。  
+macos/ の script は、自分も参考にしたい。  
+`export ZSH=$HOME/.dotfiles`として、symlink を貼っていないものに関しては、直接 path 指定で source しているっぽい
