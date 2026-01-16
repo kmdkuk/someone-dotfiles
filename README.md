@@ -1,7 +1,8 @@
 # someone-dotfiles
 
 誰かの dotfiles  
-適当に読んだ dotfiles + メモ書き
+適当に読んだ dotfiles + メモ書き  
+勝手にメモしてるので、不快/不適切/間違いな内容のあるメモ等あれば、ご指摘ください。(Twitter でも、Issue でも [@kmdkuk](https://x.com/kmdkuk) まで)
 
 ## Uncategorized
 
