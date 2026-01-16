@@ -18,7 +18,7 @@ OS?
 - [thoughtbot/dotfiles](./articles/thoughtbot-dotfiles.mdx)
 - [holman/dotfiles](./articles/holman-dotfiles.mdx)
 - [craftzdog/dotfiles-public](./articles/craftzdog-dotfiles-public.mdx)
-- [mathiabynens/dotfiles](./articles/mathiabynens-dotfiles.mdx)
+- [mathiasbynens/dotfiles](./articles/mathiasbynens-dotfiles.mdx)
 - [jessfraz/dotfiles](./articles/jessfraz-dotfiles.mdx)
 - [driesvints/dotfiles](./articles/driesvints-dotfiles.mdx)
 - [CoreyMSchafer/dotfiles](./articles/CoreyMSchafer-dotfiles.mdx)
